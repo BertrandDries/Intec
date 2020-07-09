@@ -1,14 +1,18 @@
 package be.intecBrussel.userInterface;
 
+import be.intecBrussel.services.EmployeeService;
+import be.intecBrussel.services.ProjectService;
+
 import java.sql.Date;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Scanner;
 
 public class Input {
+    private static Scanner scanner = new Scanner(System.in);
 
     public static int intInput(){
-        Scanner scanner = new Scanner(System.in);
         int input = scanner.nextInt();
         return input;
     }
@@ -36,7 +40,6 @@ public class Input {
     }
 
     public static String inputname(){
-        Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
         if(!(name != null && !name.isEmpty())){
             System.out.println("Input not valid.");
@@ -46,7 +49,6 @@ public class Input {
     }
 
     public static int inputwages(){
-        Scanner scanner = new Scanner(System.in);
         int input = scanner.nextInt();
         if(input == 0){
             System.out.println("Input not valid.");
@@ -55,7 +57,7 @@ public class Input {
         return input;
     }
 
-    public static Date enterDate(){
+    public static Date inputDate(){
         System.out.println("Please enter year. (YYYY)");
         String birthday = Input.stringInput();
         System.out.println("Please enter month. (MM)");
@@ -75,9 +77,9 @@ public class Input {
     }
 
     public static Date enterBirthday(){
-        Date date = enterDate();
+        Date date = inputDate();
         while(!checkbirthyear(date)){
-            date = enterDate();
+            date = inputDate();
         }
         return date;
     }
@@ -90,26 +92,45 @@ public class Input {
         return start.after(today);
     }
 
-    public static Date enterStartDate(){
-        Date date = enterDate();
+    public static Date inputStartDate(){
+        Date date = inputDate();
         while(!validstartdate(date)){
             System.out.println("Project cannot start in the past.");
-            date = enterDate();
+            date = inputDate();
         }
         return date;
     }
 
-    public static Date[] enterProjectDates(){
+    public static Date[] inputProjectDates(){
         System.out.println("Please enter start date.");
         Date[] dates = new Date[2];
-        dates[0] = enterStartDate();
+        dates[0] = inputStartDate();
         System.out.println("Please enter end date.");
-        Date end = enterDate();
+        Date end = inputDate();
         while (!end.after(dates[0])){
             System.out.println("End date not after start date. \n Please enter end date.");
-            end = enterDate();
+            end = inputDate();
         }
+        dates[1] = end;
         return dates;
+    }
+
+    public static int inputEmployeeID() throws SQLException {
+        System.out.println("Please enter employee ID");
+        int input = Input.intInput();
+        if(!EmployeeService.searchEmployeeID(input)){
+            input=inputEmployeeID();
+        }
+        return input;
+    }
+
+    public static int inputProjectID() throws SQLException {
+        System.out.println("Please enter project ID");
+        int input = scanner.nextInt();
+        if(!ProjectService.searchProjectID(input)){
+            input=inputProjectID();
+        }
+        return input;
     }
 
 

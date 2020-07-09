@@ -13,7 +13,7 @@ public class StartScreen {
             ProjectScreen.start();
         }
         else if (input == 3){
-
+            WorkDoneScreen.start();
         }
         else{
             System.out.println("Invalid input, please select 1,2 or 3.");
@@ -22,9 +22,10 @@ public class StartScreen {
     }
     public static void startscreen(){
         System.out.println(
-                        " \n What would you like to do?" +
                         " \n 1. Go to employees database."+
                         " \n 2. Go to projects database." +
-                        " \n 3. Go to project work database");
+                        " \n 3. Go to project work database"+
+                        " \n What would you like to do?");
+
     }
 }

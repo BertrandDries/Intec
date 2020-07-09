@@ -24,7 +24,7 @@ public class EmployeeDAO {
         return employees;
     }
 
-    public List<Employee> getEmployees() throws SQLException {
+    public static List<Employee> getEmployees() throws SQLException {
         Connection conn = ConnectionFactory.getConnection();
         Statement statement = conn.createStatement();
         String sql = "SELECT * FROM Employees";
@@ -32,7 +32,7 @@ public class EmployeeDAO {
         return parseResult(resultSet);
     }
 
-    public void addEmployee(Employee employee) throws SQLException {
+    public static void addEmployee(Employee employee) throws SQLException {
         Connection conn = ConnectionFactory.getConnection();
         String sql =  "INSERT INTO Employees (GivenName,Name,Number, ICENumber, DateOfBirth, Wages) VALUES (?,?,?,?,?,?)";
         PreparedStatement preparedStatement = conn.prepareStatement(sql);
@@ -47,7 +47,7 @@ public class EmployeeDAO {
         preparedStatement.executeUpdate();
     }
 
-    public void updateEmployee(int employeeID, String collum, String value) throws SQLException {
+    public static void updateEmployee(int employeeID, String collum, String value) throws SQLException {
         Connection conn = ConnectionFactory.getConnection();
         String sql =  " UPDATE Employees SET "+ collum +" = ? Where EmployeeID = ?; ";
         PreparedStatement preparedStatement = conn.prepareStatement(sql);
@@ -55,7 +55,7 @@ public class EmployeeDAO {
         preparedStatement.setInt(2,employeeID);
         preparedStatement.executeUpdate();
     }
-    public void updateEmployee(int employeeID, String collum, int value) throws SQLException {
+    public static void updateEmployee(int employeeID, String collum, int value) throws SQLException {
         Connection conn = ConnectionFactory.getConnection();
         String sql =  " UPDATE Employees SET "+ collum +" = ? Where EmployeeID = ?; ";
         PreparedStatement preparedStatement = conn.prepareStatement(sql);
@@ -64,7 +64,7 @@ public class EmployeeDAO {
         preparedStatement.executeUpdate();
     }
 
-    public void deleteEmployee(int employeeiD) throws SQLException {
+    public static void deleteEmployee(int employeeiD) throws SQLException {
         Connection conn = ConnectionFactory.getConnection();
         String sql =" DELETE FROM Employees WHERE EmployeeID = ?";
         PreparedStatement preparedStatement= conn.prepareStatement(sql);
@@ -78,6 +78,13 @@ public class EmployeeDAO {
         PreparedStatement preparedStatement= conn.prepareStatement(sql);
         preparedStatement.setString(1, "%"+ name+ "%");
         preparedStatement.setString(2, "%"+ name+ "%");
+        return parseResult(preparedStatement.executeQuery());
+    }
+    public static List<Employee> searchEmployeesID (int ID) throws SQLException {
+        Connection conn = ConnectionFactory.getConnection();
+        String sql = "SELECT * FROM Employees WHERE EmployeeID = ?";
+        PreparedStatement preparedStatement= conn.prepareStatement(sql);
+        preparedStatement.setInt(1, ID);
         return parseResult(preparedStatement.executeQuery());
     }
 

@@ -1,5 +1,6 @@
 package be.intecBrussel.services;
 
+import be.intecBrussel.connectivity.EmployeeDAO;
 import be.intecBrussel.connectivity.ProjectDAO;
 import be.intecBrussel.model.Project;
 
@@ -25,5 +26,12 @@ public class ProjectService {
     public static void addProject(Date start, Date end, int price, String description) throws SQLException {
         Project project = new Project(0,start,end,price, description);
         ProjectDAO.addProject(project);
+    }
+
+    public static boolean searchProjectID(int ID) throws SQLException {
+        if(ProjectDAO.searchProjectID(ID).isEmpty()){
+            return false;
+        }
+        else return true;
     }
 }

@@ -2,21 +2,20 @@ package be.intecBrussel.userInterface;
 
 import be.intecBrussel.services.EmployeeService;
 
-import java.awt.im.spi.InputMethod;
 import java.sql.Date;
 import java.sql.SQLException;
 
 public class EmployeeScreen {
     public static void start() throws SQLException {
         System.out.println(
-                " What would you like to do?" +
                         " \n 1. List all employees."+
                         " \n 2. Add employee." +
                         " \n 3. Remove Employee."+
                         " \n 4. Update Employee."+
                         " \n 5. Search Employee by name."+
                         " \n 6. Look at anniversaries for the upcoming week."+
-                        " \n 7. Return to start menu.");
+                        " \n 7. Return to start menu."+
+                        " \n What would you like to do?");
             employeeAction(Input.intInput());
     }
 
@@ -33,6 +32,7 @@ public class EmployeeScreen {
             case 3 :
                 System.out.println("Please enter ID of employee you wish to delete.");
                 EmployeeService.deleteEmployee(Input.intInput());
+                System.out.println("Employee Deleted.");
                 start();
                 break;
             case 4 :
@@ -58,16 +58,16 @@ public class EmployeeScreen {
         System.out.println("Please enter Employee ID.");
         int ID = Input.intInput();
         System.out.println(
-                "Please select field you wish to update: \n" +
                 "1. Given name. \n" +
                 "2. Name. \n" +
                 "3. Number. \n" +
                 "4. ICE number. \n" +
                 "5. Date of birth. \n" +
-                "6. Wages.");
+                "6. Wages. \n"+
+                "Please select field you wish to update: ");
         int i = Input.intInput();
         String choice = null;
-        if (i>0 && i < 6) {
+        if (i > 0 && i < 7) {
             String data = null;
             switch (i) {
                 case (1):
@@ -92,8 +92,8 @@ public class EmployeeScreen {
                     break;
                 case (5):
                     choice = "DateOfBirth";
-                    System.out.println("Please enter new date of birth. YYYY-MM-DD");
-                    data = Input.stringInput();
+                    System.out.println("Please enter new date of birth.");
+                    data = String.valueOf(Input.inputDate());
                     break;
             }
             EmployeeService.updateEmployee(ID, choice, data);
@@ -104,6 +104,7 @@ public class EmployeeScreen {
             System.out.println("Please enter new wages.");
             int data = Input.intInput();
             EmployeeService.updateEmployee(ID, choice, data);
+            System.out.println("Employee updated.");
         }
         else{
             System.out.println("not a valid input.");
@@ -126,6 +127,7 @@ public class EmployeeScreen {
         System.out.println("Please enter Wages.");
         int wages = Input.inputwages();
         EmployeeService.addEmployee(givenName,name,number,ICEnumber,date,wages);
+        System.out.println("Employee added.");
     }
 
     private static void searchEmployee ( String name) throws SQLException {

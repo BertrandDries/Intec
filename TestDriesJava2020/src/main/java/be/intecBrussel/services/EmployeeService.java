@@ -9,14 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeService {
+
     public static List<Employee> getEmployees() throws SQLException {
-        EmployeeDAO employeeDAO = new EmployeeDAO();
-        return employeeDAO.getEmployees();
+        return EmployeeDAO.getEmployees();
 
     }
 
     public static void addEmployee(String givenname, String name, String number, String icenumber, Date birthday, int wages) throws SQLException {
-        EmployeeDAO employeeDAO = new EmployeeDAO();
         Employee employee = new Employee();
         employee.setGivenName(givenname);
         employee.setName(name);
@@ -24,27 +23,31 @@ public class EmployeeService {
         employee.setICEnumber(icenumber);
         employee.setBirthday(birthday);
         employee.setWages(wages);
-        employeeDAO.addEmployee(employee);
+        EmployeeDAO.addEmployee(employee);
     }
 
     public static void updateEmployee(int employeeID, String collum, String value) throws SQLException {
-        EmployeeDAO employeeDAO = new EmployeeDAO();
-        employeeDAO.updateEmployee(employeeID,collum,value);
+        EmployeeDAO.updateEmployee(employeeID,collum,value);
     }
 
     public static void updateEmployee(int employeeID, String collum, int value) throws SQLException {
-        EmployeeDAO employeeDAO = new EmployeeDAO();
-        employeeDAO.updateEmployee(employeeID,collum,value);
+        EmployeeDAO.updateEmployee(employeeID,collum,value);
     }
 
     public static void deleteEmployee(int ID) throws SQLException {
-        EmployeeDAO employeeDAO = new EmployeeDAO();
-        employeeDAO.deleteEmployee(ID);
+        EmployeeDAO.deleteEmployee(ID);
     }
 
     public static List<Employee> searchEmployees(String name) throws SQLException {
         List<Employee> employees = EmployeeDAO.searchEmployees(name);
         return employees;
+    }
+
+    public static boolean searchEmployeeID( int ID) throws SQLException {
+        if(EmployeeDAO.searchEmployeesID(ID).isEmpty()){
+            return false;
+        }
+        else return true;
     }
 
     public static List<Employee> getBirthdays() throws SQLException {

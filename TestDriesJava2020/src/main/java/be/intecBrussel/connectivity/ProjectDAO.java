@@ -4,6 +4,7 @@ import be.intecBrussel.model.Project;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class ProjectDAO {
@@ -64,5 +65,13 @@ public class ProjectDAO {
         String sql = "SELECT * FROM Projects WHERE DATE_FORMAT(Start, '%y-%m-%d') = DATE_FORMAT(NOW(),'%y-%m-%d')";
         ResultSet resultSet = statement.executeQuery(sql);
         return parseResult(resultSet);
+    }
+
+    public static List<Project> searchProjectID(int ID) throws SQLException {
+        Connection conn = ConnectionFactory.getConnection();
+        String sql = "SELECT * FROM Projects WHERE ProjectID = ?";
+        PreparedStatement preparedStatement= conn.prepareStatement(sql);
+        preparedStatement.setInt(1, ID);
+        return parseResult(preparedStatement.executeQuery());
     }
 }

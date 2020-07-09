@@ -3,11 +3,11 @@ package be.intecBrussel.model;
 import java.sql.Date;
 
 public class Project {
-    int projectID;
-    Date start;
-    Date end;
-    int price;
-    String description;
+    private int projectID;
+    private Date start;
+    private Date end;
+    private int price;
+    private String description;
 
     @Override
     public String toString() {

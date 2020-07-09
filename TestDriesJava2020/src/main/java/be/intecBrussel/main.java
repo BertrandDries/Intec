@@ -14,17 +14,3 @@ public class main {
         }
     }
 }
-
-
-//        EmployeeService employeeService = new EmployeeService();
-//        EmployeeDAO employeeDAO = new EmployeeDAO();
-//        EmployeeService.addEmployee("Olivia","Maria","0475968532","","1996-07-09", 6000);
-//
-//
-//        List<Employee> employees;
-//        employees= employeeService.getEmployees();
-//        employees.forEach(System.out :: println);
-//
-//
-//        employees =EmployeeDAO.getBirthdayThisWeek();
-//        employees.forEach(System.out :: println);
