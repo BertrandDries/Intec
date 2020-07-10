@@ -24,6 +24,16 @@ public class WorkDone {
                 '}';
     }
 
+    public String toString2() {
+        return "WorkDone{" +
+                "employeeID=" + employeeID +
+                ", employeeGivenName='" + employeeGivenName + '\'' +
+                ", employeeName='" + employeeName + '\'' +
+                ", projectID=" + projectID +
+                ", hoursWorked=" + hoursWorked +
+                '}';
+    }
+
     public String getEmployeeGivenName() {
         return employeeGivenName;
     }

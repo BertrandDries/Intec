@@ -1,10 +1,12 @@
 package be.intecBrussel.userInterface;
 
+import be.intecBrussel.model.WorkDone;
 import be.intecBrussel.services.EmployeeService;
 import be.intecBrussel.services.WorkDoneServices;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.List;
 
 public class WorkDoneScreen {
     public static void start() throws SQLException {
@@ -14,36 +16,51 @@ public class WorkDoneScreen {
                         " \n 3. Delete work done."+
                         " \n 4. Update work done."+
                         " \n 5. Search work done by employee. (by ID)"+
-                        " \n 6. Return to start menu."+
+                        " \n 6. Get most work done on project. (by ID)"+
+                        " \n 7. Return to start menu."+
                         " \n What would you like to do?");
         workDoneAction(Input.intInput());
     }
 
     private static void workDoneAction(int choice) throws SQLException {
-        switch(choice){
-            case 1 :
-               WorkDoneServices.getWorkDone().forEach(System.out::println);
-                start();
-                break;
-            case 2 :
-                addWorkDone();
-                start();
-                break;
-            case 3 :
-                deleteWorkDone();
-                start();
-                break;
-            case 4 :
-                updateWorkDone();
-                start();
-                break;
-            case 5 :
-                WorkDoneServices.getWorkDoneEmployee(Input.inputEmployeeID());
-                start();
-                break;
-            case 6 :
-                StartScreen.Start();
-                break;
+        if(!(choice>0 && choice<8)){
+            System.out.println("Not a valid choice");
+            start();
+        }
+        else {
+            switch (choice) {
+                case 1:
+                    WorkDoneServices.getWorkDone().forEach(System.out::println);
+                    start();
+                    break;
+                case 2:
+                    addWorkDone();
+                    start();
+                    break;
+                case 3:
+                    deleteWorkDone();
+                    start();
+                    break;
+                case 4:
+                    updateWorkDone();
+                    start();
+                    break;
+                case 5:
+                    WorkDoneServices.getWorkDoneEmployee(Input.inputEmployeeID()).forEach(System.out::println);
+                    start();
+                    break;
+                case 6:
+                    System.out.println("Please enter project ID.");
+                    List<WorkDone> workDoneList = WorkDoneServices.getWorkDoneMax(Input.intInput());
+                    for(WorkDone workDone: workDoneList){
+                        System.out.println(workDone.toString2());
+                    }
+                    start();
+                    break;
+                case 7:
+                    StartScreen.Start();
+                    break;
+            }
         }
     }
 

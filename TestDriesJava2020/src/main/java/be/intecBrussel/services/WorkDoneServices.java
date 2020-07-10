@@ -13,8 +13,8 @@ public class WorkDoneServices {
         return WorkDoneDAO.getWorkDone();
     }
 
-    public static List<WorkDone> getWorkDoneEmployee(int ID) throws SQLException {
-        return WorkDoneDAO.getWorkFromID(ID);
+    public static List<WorkDone> getWorkDoneEmployee(int employeeID) throws SQLException {
+        return WorkDoneDAO.getWorkFromEmployeeID(employeeID);
     }
 
     public static void deleteWorkDone(int projectID,int employeeID) throws SQLException {
@@ -40,5 +40,9 @@ public class WorkDoneServices {
     }
     public static void updateWorkDone(int employeeID, int projectID, String choice, int value) throws SQLException {
         WorkDoneDAO.updateWorkDone(employeeID,projectID,choice,value);
+    }
+
+    public static List<WorkDone> getWorkDoneMax(int projectID) throws SQLException {
+        return WorkDoneDAO.getWorkDoneMax(projectID);
     }
 }

@@ -94,4 +94,12 @@ public class EmployeeDAO {
         PreparedStatement preparedStatement= conn.prepareStatement(sql);
         return parseResult(preparedStatement.executeQuery());
     }
+
+    public static int getEmployeeWages(int employeeID) throws SQLException {
+        Connection conn = ConnectionFactory.getConnection();
+        String sql = "SELECT * FROM Employees where EmployeeID = ?";
+        PreparedStatement preparedStatement= conn.prepareStatement(sql);
+        preparedStatement.setInt(1,employeeID);
+        return parseResult(preparedStatement.executeQuery()).get(0).getWages();
+    }
 }

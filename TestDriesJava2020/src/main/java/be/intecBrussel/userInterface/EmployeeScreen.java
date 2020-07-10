@@ -93,7 +93,7 @@ public class EmployeeScreen {
                 case (5):
                     choice = "DateOfBirth";
                     System.out.println("Please enter new date of birth.");
-                    data = String.valueOf(Input.inputDate());
+                    data = String.valueOf(Input.enterBirthday());
                     break;
             }
             EmployeeService.updateEmployee(ID, choice, data);
