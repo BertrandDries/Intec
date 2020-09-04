@@ -1,0 +1,26 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.2"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+    <!-- Define persistence unit -->
+    <persistence-unit name="datasource" transaction-type="RESOURCE_LOCAL">
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://moktok.javawebdev.com:33306/dries"/>
+            <property name="javax.persistence.jdbc.user" value="dries" />
+            <property name="javax.persistence.jdbc.password" value="dries2020" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+        </properties>
+    </persistence-unit>
+    <persistence-unit name="my-secunt-persistence-unit">
+    </persistence-unit>
+    <persistence-unit name="my-turd-persistence-unit">
+    </persistence-unit>
+</persistence>
+
+        <!-- name="hibernate.hbm2ddl.auto" value="create" // "create-drop" // "none" // "validate" // "update" // ddl= data defenition language, subclass of sql      -->
+
+<!--        "jdbc:mysql://moktok.javawebdev.com:33306/dries",-->
+<!--        "dries",-->
+<!--        "dries2020"-->
