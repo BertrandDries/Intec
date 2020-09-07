@@ -11,7 +11,7 @@ public class ConnectionFactory {
         if(emf == null) emf = Persistence.createEntityManagerFactory("datasource");
     }
 
-    public static EntityManager getEntityManager(){
+    public static  EntityManager getEntityManager(){
         return emf.createEntityManager();
     }
 

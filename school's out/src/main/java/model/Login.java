@@ -5,17 +5,18 @@ import javax.persistence.*;
 @Entity
 public class Login {
     @Id
-    String login;
+    private String login;
 
-    String passwordHash;
+    private String passwordHash;
 
-    String salt;
+    private String salt;
 
-    Boolean active;
-
+    private Boolean active;
     @OneToOne
     @JoinColumn(name="UserID")
     private User user;
+
+
 
     public String getLogin() {
         return login;

@@ -6,7 +6,16 @@ import javax.persistence.*;
 public class UserType {
     @Id
     @GeneratedValue
-    int userTypeID;
+    private int userTypeID;
 
-    String userType;
+    private String userType;
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public UserType setUserType(String userType) {
+        this.userType = userType;
+        return this;
+    }
 }
