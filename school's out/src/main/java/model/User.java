@@ -1,6 +1,9 @@
 package model;
 
+import service.CourseService;
+
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -8,17 +11,26 @@ public class User {
     @Id
     @GeneratedValue
     private int userID;
-
+    private boolean validated;
     private String name;
     private String familyName;
 
     @ManyToMany
-    private List<Course> activeCourses;
+    private List<Course> activeCourses =new ArrayList<>();
     @ManyToMany
     private List<Course> fnishedCourses;
 
     @ManyToOne
     private UserType userType;
+
+    public boolean isValidated() {
+        return validated;
+    }
+
+    public User setValidated(boolean validated) {
+        this.validated = validated;
+        return this;
+    }
 
     public int getUserID() {
         return userID;
@@ -72,5 +84,8 @@ public class User {
     public User setUserType(UserType userType) {
         this.userType = userType;
         return this;
+    }
+    public void addCourse(int courseID){
+        activeCourses.add(CourseService.getCourse(courseID));
     }
 }

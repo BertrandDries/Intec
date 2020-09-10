@@ -62,4 +62,15 @@ public class Login {
         this.user = user;
         return this;
     }
+
+    @Override
+    public String toString() {
+        return "Login{" +
+                "login='" + login + '\'' +
+                ", passwordHash='" + passwordHash + '\'' +
+                ", salt='" + salt + '\'' +
+                ", active=" + active +
+                ", user=" + user +
+                '}';
+    }
 }

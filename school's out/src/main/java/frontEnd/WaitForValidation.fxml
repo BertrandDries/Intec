@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="202.0" prefWidth="198.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontEnd.WaitForValidationController">
+   <children>
+      <Text layoutX="28.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="An admin will have to verify your login before you can Login." wrappingWidth="114.13672637939453" />
+      <Button fx:id="returnButton" layoutX="59.0" layoutY="123.0" mnemonicParsing="false" onAction="#returnButtonOnAction" text="Return" />
+   </children>
+</AnchorPane>

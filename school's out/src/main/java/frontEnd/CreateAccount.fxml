@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="394.0" prefWidth="387.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontEnd.CreateAccountController">
+   <children>
+      <Label layoutX="36.0" layoutY="52.0" prefHeight="33.0" prefWidth="102.0" text="Username" />
+      <TextField fx:id="UserNameField" layoutX="113.0" layoutY="56.0" />
+      <PasswordField fx:id="PasswordField1" layoutX="113.0" layoutY="170.0" />
+      <Label layoutX="36.0" layoutY="166.0" prefHeight="33.0" prefWidth="102.0" text="Password" />
+      <Label layoutX="36.0" layoutY="200.0" prefHeight="33.0" prefWidth="102.0" text="Password" />
+      <PasswordField fx:id="PasswordField2" layoutX="113.0" layoutY="204.0" />
+      <TextField fx:id="FamilyNameField" layoutX="113.0" layoutY="126.0" />
+      <TextField fx:id="FirstNameField" layoutX="113.0" layoutY="92.0" />
+      <Label layoutX="36.0" layoutY="88.0" prefHeight="33.0" prefWidth="102.0" text="First Name" />
+      <Label layoutX="36.0" layoutY="122.0" prefHeight="33.0" prefWidth="102.0" text="Family Name" />
+      <Label layoutX="36.0" layoutY="245.0" prefHeight="33.0" prefWidth="102.0" text="Type of User" />
+      <ChoiceBox fx:id="UserTypeChoiceBox" layoutX="112.0" layoutY="249.0" prefWidth="150.0" AnchorPane.topAnchor="249.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+             <String fx:value="Admin" />
+              <String fx:value="Teacher" />
+              <String fx:value="Student" />
+           </FXCollections>
+         </items>
+      </ChoiceBox>
+      <Button fx:id="CreateButton" layoutX="126.0" layoutY="299.0" mnemonicParsing="false" onAction="#CreateButtonOnAction" prefHeight="26.0" prefWidth="126.0" text="Create" />
+      <Label fx:id="UsernameNotAvailable" layoutX="272.0" layoutY="55.0" prefHeight="34.0" prefWidth="82.0" text="Username not available" visible="false" />
+      <Label fx:id="PasswordsDoNotMatch" layoutX="272.0" layoutY="169.0" prefHeight="61.0" prefWidth="82.0" text="Passwords do not match" visible="false" />
+   </children>
+</AnchorPane>

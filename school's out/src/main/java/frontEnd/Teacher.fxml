@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="457.0" prefWidth="694.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontEnd.TeacherController">
+    <tabs>
+        <Tab fx:id="Mailbox" text="Mailbox">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <Accordion layoutY="7.0" prefHeight="418.0" prefWidth="167.0">
+                            <panes>
+                                <TitledPane fx:id="Inbox" animated="false" text="Inbox">
+                                    <content>
+                                        <AnchorPane fx:id="inboxField" minHeight="0.0" minWidth="0.0" prefHeight="366.0" prefWidth="149.0" />
+                                    </content>
+                                </TitledPane>
+                                <TitledPane fx:id="Outbox" animated="false" prefHeight="393.0" prefWidth="166.0" text="Outbox">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                    </content>
+                                </TitledPane>
+                            </panes>
+                        </Accordion>
+                    </children></AnchorPane>
+            </content>
+        </Tab>
+        <Tab fx:id="Courses" text="Courses">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <TabPane prefHeight="426.0" prefWidth="694.0" tabClosingPolicy="UNAVAILABLE">
+                            <tabs>
+                                <Tab text="My Courses">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                    </content>
+                                </Tab>
+                                <Tab text="Look For Courses">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                    </content>
+                                </Tab>
+                            </tabs>
+                        </TabPane>
+                    </children></AnchorPane>
+            </content>
+        </Tab>
+        <Tab fx:id="Profile" text="Profile">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>
