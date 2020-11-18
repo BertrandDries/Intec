@@ -1,0 +1,99 @@
+body{
+  border: 5px solid black;
+	padding:20px;
+	margin: 15px;
+	background-color: blueviolet;
+}
+#container{
+  display: flex;
+  flex-direction: row;
+  border: 5px solid white;
+}
+#nav-list{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+#special-li{
+  font-size: 40px;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+h2{
+  border: 5px solid black;
+  text-align: center;
+  font-size: 60px;
+  background-color: yellow;
+}
+h4{
+  border: 5px solid black;
+  text-align: center;
+  font-size: 35px;
+  background-color: blanchedalmond;
+}
+#table1 {
+  border: 5px solid black;
+	width:100%;
+  }
+  table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+  }
+  th, td {
+	padding: 15px;
+	text-align: left;
+  }
+  #t01 tr:nth-child(even) {
+	background-color: #eee;
+  }
+  #t01 tr:nth-child(odd) {
+   background-color: #fff;
+  }
+  #t01 th {
+	background-color: black;
+	color: white;
+  }
+#div1{
+  min-width: 100%;
+  min-height: 350px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 5px solid black;
+  background-image: url("mEMErEAL.jpeg" );
+}
+#div2{
+  border: 5px solid black;
+}
+#div3{
+  border: 5px solid black;
+  width: 100%;
+}
+#div4{
+  border: 5px solid black;
+  width: 100%;
+}
+
+@media screen and (max-width : 550px){
+	body{	
+		background-color :red;
+  }
+  #div1{
+    min-width: 100%;
+    min-height: 175px;
+    background-size: cover;
+  }
+  #container{
+    display: flex;
+    flex-direction: column;
+    border: 5px solid white;
+  }
+
+  
+}
+
